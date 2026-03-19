@@ -1,0 +1,15 @@
+ecommerce_dbt:
+  target: dev
+  outputs:
+    dev:
+      type: duckdb
+      path: 'lakehouse.duckdb'
+      extensions:
+        - httpfs
+        - parquet
+      settings:
+        s3_endpoint: localhost:9000
+        s3_access_key_id: "{{ env_var('MINIO_ROOT_USER', 'admin') }}"
+        s3_secret_access_key: "{{ env_var('MINIO_ROOT_PASSWORD', 'my_super_secret_password') }}"
+        s3_use_ssl: false
+        s3_url_style: path
