@@ -1,7 +1,4 @@
 services:
-  # ----------------------------------------------------------------------
-  # SERVICE 1: HỆ THỐNG VẬN HÀNH (OLTP) - NGUỒN PHÁT SINH DỮ LIỆU
-  # ----------------------------------------------------------------------
   source_db:
     image: postgres:15-alpine
     container_name: ecommerce_postgres_db
@@ -17,9 +14,6 @@ services:
     volumes:
       - postgres_data_volume:/var/lib/postgresql/data
 
-  # ----------------------------------------------------------------------
-  # SERVICE 2: KHO LƯU TRỮ TẬP TRUNG (DATA LAKE) - ĐÍCH ĐẾN CỦA PIPELINE
-  # ----------------------------------------------------------------------
   object_storage:
     image: minio/minio:latest
     container_name: ecommerce_minio_lakehouse

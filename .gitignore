@@ -37,3 +37,16 @@ infra/minio_data/
 
 .DS_Store
 Thumbs.db
+
+venv/
+__pycache__/
+.pytest_cache/
+
+*.duckdb
+*.wal
+*.db
+
+# Tàn dư hạ tầng cũ (phòng hờ)
+metabase_plugins/
+rill_dashboard/
+.rill/

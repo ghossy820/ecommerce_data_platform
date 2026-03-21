@@ -1,0 +1,26 @@
+version: 2
+
+models:
+  - name: dim_customers
+    description: "Bảng danh mục khách hàng đã được làm sạch (chỉ chứa email hợp lệ)."
+    columns:
+      - name: customer_id
+        description: "Khóa chính của khách hàng."
+        tests:
+          - unique
+          - not_null
+
+  - name: fact_sales
+    description: "Bảng sự kiện giao dịch cốt lõi để tính toán doanh thu."
+    columns:
+      - name: order_id
+        description: "Mã đơn hàng duy nhất."
+        tests:
+          - unique
+          - not_null
+          
+      - name: order_status
+        description: "Trạng thái đơn hàng."
+        tests:
+          - accepted_values:
+              values: ['completed', 'canceled', 'refunded']
