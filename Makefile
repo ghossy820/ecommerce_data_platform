@@ -22,7 +22,7 @@ infra-up:
 
 infra-down:
 	@echo "🛑 Tắt Docker..."
-	cd infra && docker compose down
+	cd infra && docker compose --env-file ../.env down
 
 # --- 2. GIẢ LẬP & TRÍCH XUẤT (INGESTION) ---
 simulate:
